@@ -1,0 +1,42 @@
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\YTPlaylistDecrypter.exe.config
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\YTPlaylistDecrypter.exe
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\YTPlaylistDecrypter.pdb
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\PlaylistExtractor.dll
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\bin\Debug\PlaylistExtractor.pdb
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\DemoProgram.Form1.resources
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\YTPlaylistDecrypter.Properties.Resources.resources
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\DemoProgram.csproj.GenerateResource.Cache
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\YTPlaylistDecrypter.exe
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\YTPlaylistDecrypter.pdb
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\YTPlaylistDecrypter\obj\Debug\DemoProgram.csprojResolveAssemblyReference.cache
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\DemoProgram\bin\Debug\YTPlaylistDecrypter.exe.config
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\DemoProgram\obj\Debug\YTPlaylistDecrypter.exe
+C:\Users\Rotem\Downloads\YTPlaylistDecrypter\DemoProgram\obj\Debug\YTPlaylistDecrypter.pdb
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.Form1.resources
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.csproj.GenerateResource.Cache
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.csprojResolveAssemblyReference.cache
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\PlaylistExtractor.dll
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\PlaylistExtractor.pdb
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.exe.config
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.Properties.Resources.resources
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.exe
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.pdb
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.exe
+C:\Users\Rotem\Documents\Visual Studio 2015\Projects\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.pdb
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.exe.config
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.exe
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\bin\Debug\DemoProgram.pdb
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\bin\Debug\PlaylistExtractor.dll
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\bin\Debug\PlaylistExtractor.pdb
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.csprojResolveAssemblyReference.cache
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.Form1.resources
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.Properties.Resources.resources
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.csproj.GenerateResource.Cache
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.exe
+C:\Users\Rotem\Downloads\PlaylistExtractor\DemoProgram\obj\Debug\DemoProgram.pdb
