@@ -8,6 +8,7 @@ namespace PlaylistExtractor.Base
     internal class DailymotionExtractor : Extractor
     {
         private const string _urlPattern = @"dailymotion\.com\/playlist\/[a-z0-9]+(-)?";
+        
         public override string UrlPattern { get { return _urlPattern; } }
 
         public override IEnumerable<IVideo> DoExtraction(string url)
