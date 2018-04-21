@@ -44,9 +44,7 @@ namespace PlaylistExtractor.Services
 
         private IExtractor TryGetExtractor(string url)
         {
-            return (from ex in _extractors
-                    where Regex.IsMatch(url, ex.Key)
-                    select ex.Value).FirstOrDefault();
+            return _extractors.SingleOrDefault(e => Regex.IsMatch(url, e.Key)).Value;
         }
     }
 }
