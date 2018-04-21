@@ -19,7 +19,9 @@ namespace DemoProgram
 
             Cursor.Current = Cursors.WaitCursor;
 
-            foreach (IVideo video in ExtractorService.GetInstance().ExtractVideos(textBox1.Text))
+            var videos = ExtractorService.GetInstance().ExtractVideos(textBox1.Text);
+
+            foreach (IVideo video in videos)
             {
                 var node = new TreeNode(video.Title);
                 node.Nodes.Add(video.Url);

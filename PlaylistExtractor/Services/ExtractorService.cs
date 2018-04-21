@@ -3,6 +3,7 @@ using PlaylistExtractor.Base;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace PlaylistExtractor.Services
 {
@@ -21,9 +22,18 @@ namespace PlaylistExtractor.Services
         {
             _extractors = new Dictionary<string, IExtractor>
             {
-                { "youtube.com", new YoutubeExtractor() },
-                { "vimeo.com", new VimeoExtractor() },
-                { "dailymotion.com", new DailymotionExtractor() }
+                {
+                    @"(youtube\.com|youtu\.be)\/playlist\?list=[a-zA-Z0-9]+((-|_)[a-zA-Z0-9]+)?",
+                    new YoutubeExtractor()
+                },
+                {
+                    @"vimeo\.com\/groups\/[a-z0-9]+",
+                    new VimeoExtractor()
+                },
+                {
+                    @"dailymotion\.com\/playlist\/[a-z0-9]+(-)?",
+                    new DailymotionExtractor()
+                }
             };
         }
 
@@ -34,13 +44,11 @@ namespace PlaylistExtractor.Services
 
         private IExtractor TryGetExtractor(string url)
         {
-            var host = new Uri(url).Host.Replace("www.", string.Empty);
+            var extractor = (from ex in _extractors
+                            where Regex.IsMatch(url, ex.Key)
+                            select ex.Value).FirstOrDefault();
 
-            if (!_extractors.ContainsKey(host)) return null;
-
-            var extractor = _extractors[host];
-            
-            return Regex.IsMatch(url, extractor.UrlPattern) ? extractor : null;
+            return extractor;
         }
     }
 }

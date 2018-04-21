@@ -9,8 +9,6 @@ namespace PlaylistExtractor.Base
     {
         protected readonly HtmlAgilityPack.HtmlDocument htmlDocument;
 
-        public abstract string UrlPattern { get; }
-
         public Extractor()
         {
             htmlDocument = new HtmlAgilityPack.HtmlDocument();
@@ -33,15 +31,9 @@ namespace PlaylistExtractor.Base
             }
         }
 
-        protected bool TryLoadHtmlFromUrl(string url)
+        protected void LoadHtmlFromUrl(string url)
         {
-            var html = GetHtmlDecoded(url);
-
-            if (string.IsNullOrEmpty(html)) return false;
-
-            htmlDocument.LoadHtml(html);
-
-            return true;
+            htmlDocument.LoadHtml(GetHtmlDecoded(url));
         }
     }
 }

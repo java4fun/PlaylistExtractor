@@ -8,15 +8,11 @@ namespace PlaylistExtractor.Base
 {
     internal class VimeoExtractor : Extractor
     {
-        private const string _urlPattern = @"vimeo\.com\/groups\/[a-z0-9]+";
-
-        public override string UrlPattern { get { return _urlPattern; } }
-
         public override IEnumerable<IVideo> DoExtraction(string url)
         {
-            if (!TryLoadHtmlFromUrl(url)) yield break;
+            LoadHtmlFromUrl(url);
 
-            var videos = htmlDocument.DocumentNode.SelectNodes("//*[@id='browse_content']/ol/li/a");
+            var videos = htmlDocument.DocumentNode.SelectNodes("ADD XPATH HERE");
 
             if (videos == null) yield break;
 

@@ -7,15 +7,11 @@ namespace PlaylistExtractor.Base
 {
     internal class YoutubeExtractor : Extractor
     {
-        private const string _urlPattern = @"(youtube\.com|youtu\.be)\/playlist\?list=[a-zA-Z0-9]+((-|_)[a-zA-Z0-9]+)?";
-
-        public override string UrlPattern { get { return _urlPattern; } }
-
         public override IEnumerable<IVideo> DoExtraction(string url)
         {
-            if (!TryLoadHtmlFromUrl(url)) yield break;
+            LoadHtmlFromUrl(url);
 
-            var videos = htmlDocument.DocumentNode.SelectNodes("//*[@id='pl-video-table']/tbody/tr");
+            var videos = htmlDocument.DocumentNode.SelectNodes("ADD XPATH HERE");
 
             if (videos == null) yield break;
 
