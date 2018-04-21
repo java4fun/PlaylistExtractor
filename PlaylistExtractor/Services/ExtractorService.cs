@@ -27,7 +27,7 @@ namespace PlaylistExtractor.Services
                     new YoutubeExtractor()
                 },
                 {
-                    @"vimeo\.com\/groups\/[a-z0-9]+",
+                    @"vimeo\.com\/album\/[a-z0-9]+",
                     new VimeoExtractor()
                 },
                 {
@@ -44,11 +44,9 @@ namespace PlaylistExtractor.Services
 
         private IExtractor TryGetExtractor(string url)
         {
-            var extractor = (from ex in _extractors
-                            where Regex.IsMatch(url, ex.Key)
-                            select ex.Value).FirstOrDefault();
-
-            return extractor;
+            return (from ex in _extractors
+                    where Regex.IsMatch(url, ex.Key)
+                    select ex.Value).FirstOrDefault();
         }
     }
 }

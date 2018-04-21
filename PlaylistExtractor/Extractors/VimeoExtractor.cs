@@ -12,18 +12,7 @@ namespace PlaylistExtractor.Base
         {
             LoadHtmlFromUrl(url);
 
-            var videos = htmlDocument.DocumentNode.SelectNodes("ADD XPATH HERE");
-
-            if (videos == null) yield break;
-
-            foreach (HtmlNode video in videos)
-            {
-                yield return new Video
-                {
-                    Title = video.GetAttributeValue("title", string.Empty),
-                    Url = $"www.vimeo.com/{video.GetAttributeValue("href", string.Empty).Split('/').Last()}"
-                };
-            }
+            return null; // TO DO - Implement extractor.
         }
     }
 }

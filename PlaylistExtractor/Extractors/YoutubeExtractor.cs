@@ -2,6 +2,7 @@
 using PlaylistExtractor.Contracts;
 using PlaylistExtractor.Models;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace PlaylistExtractor.Base
 {
@@ -11,16 +12,16 @@ namespace PlaylistExtractor.Base
         {
             LoadHtmlFromUrl(url);
 
-            var videos = htmlDocument.DocumentNode.SelectNodes("ADD XPATH HERE");
+            string html = htmlDocument.ParsedText;
 
-            if (videos == null) yield break;
+            var videos = Regex.Matches(html, "data-video-id=\"(.*?)\".*?data-title=\"(.*?)\"");
 
-            foreach (HtmlNode video in videos)
+            foreach(Match video in videos)
             {
                 yield return new Video
                 {
-                    Title = video.GetAttributeValue("data-title", string.Empty),
-                    Url = $"www.youtube.com/watch?v={video.GetAttributeValue("data-video-id", string.Empty)}"
+                    Title = video.Groups[2].Value,
+                    Url = $"www.youtube.com/watch?v={video.Groups[1].Value}"
                 };
             }
         }
