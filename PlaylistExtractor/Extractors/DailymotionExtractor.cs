@@ -11,6 +11,8 @@ namespace PlaylistExtractor.Base
         {
             LoadHtmlFromUrl(url);
 
+            string html = htmlDocument.ParsedText;
+
             return null; // TO DO - Implement extractor.
         }
     }

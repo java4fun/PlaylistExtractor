@@ -1,5 +1,4 @@
-﻿using HtmlAgilityPack;
-using PlaylistExtractor.Contracts;
+﻿using PlaylistExtractor.Contracts;
 using PlaylistExtractor.Models;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
