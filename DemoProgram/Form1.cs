@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Linq;
 using PlaylistExtractor.Services;
 using PlaylistExtractor.Contracts;
 
@@ -12,14 +13,12 @@ namespace DemoProgram
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (treeView1.Nodes.Count > 0)
                 treeView1.Nodes.Clear();
 
-            Cursor.Current = Cursors.WaitCursor;
-
-            var videos = ExtractorService.GetInstance().ExtractVideos(textBox1.Text);
+            var videos = await ExtractorService.GetInstance().ExtractVideosAsync(textBox1.Text);
 
             foreach (IVideo video in videos)
             {
@@ -29,9 +28,7 @@ namespace DemoProgram
                 treeView1.Nodes.Add(node);
             }
 
-            Cursor.Current = Cursors.Default;
-
-            toolStripStatusLabel1.Text = $"{treeView1.Nodes.Count} videos found.";
+            toolStripStatusLabel1.Text = $"{videos.Count()} videos found.";
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
