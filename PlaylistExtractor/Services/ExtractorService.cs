@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PlaylistExtractor.Services
 {
@@ -37,9 +38,9 @@ namespace PlaylistExtractor.Services
             };
         }
 
-        public IEnumerable<IVideo> ExtractVideos(string playlistUrl)
+        public Task<IEnumerable<IVideo>> ExtractVideosAsync(string playlistUrl)
         {
-            return TryGetExtractor(playlistUrl)?.DoExtraction(playlistUrl);
+            return Task.Factory.StartNew(() => TryGetExtractor(playlistUrl)?.DoExtraction(playlistUrl));
         }
 
         private IExtractor TryGetExtractor(string url)
