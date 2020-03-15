@@ -1,5 +1,7 @@
-﻿using PlaylistExtractor.Models;
+﻿using HtmlAgilityPack;
+using PlaylistExtractor.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlaylistExtractor.Base
 {
@@ -17,7 +19,7 @@ namespace PlaylistExtractor.Base
 
             doc.LoadHtml(html);
 
-            return null; // TO DO - Implement extractor.
+            return null; // todo - implement (the videos content aren't static on the html)
         }
     }
 }
