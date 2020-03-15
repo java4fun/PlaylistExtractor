@@ -1,16 +1,20 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Linq;
+﻿using PlaylistExtractor.Models;
 using PlaylistExtractor.Services;
-using PlaylistExtractor.Contracts;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DemoProgram
 {
     public partial class Form1 : Form
     {
+        private readonly ExtractorService extractor;
+
         public Form1()
         {
             InitializeComponent();
+
+            extractor = new ExtractorService();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -18,9 +22,12 @@ namespace DemoProgram
             if (treeView1.Nodes.Count > 0)
                 treeView1.Nodes.Clear();
 
-            var videos = await ExtractorService.GetInstance().ExtractVideosAsync(textBox1.Text);
+            var videos = await extractor.ExtractVideosAsync(textBox1.Text);
 
-            foreach (IVideo video in videos)
+            if (videos == null)
+                return;
+
+            foreach (Video video in videos)
             {
                 var node = new TreeNode(video.Title);
                 node.Nodes.Add(video.Url);

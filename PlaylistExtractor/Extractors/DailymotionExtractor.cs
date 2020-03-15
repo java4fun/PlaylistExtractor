@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
-using PlaylistExtractor.Models;
-using HtmlAgilityPack;
-using PlaylistExtractor.Contracts;
+﻿using PlaylistExtractor.Models;
+using System.Collections.Generic;
 
 namespace PlaylistExtractor.Base
 {
-    internal class DailymotionExtractor : Extractor
+    public class DailymotionExtractor : IExtractor
     {
-        public override IEnumerable<IVideo> DoExtraction(string url)
+        public DailymotionExtractor()
         {
-            LoadHtmlFromUrl(url);
+            ServiceHost = "www.dailymotion.com";
+            ServiceRegex = @"dailymotion\.com\/playlist\/[a-z0-9]+(-)?";
+        }
 
-            string html = htmlDocument.ParsedText;
+        public override IEnumerable<Video> DoExtraction(string url)
+        {
+            string html = GetHtmlDecoded(url);
+
+            doc.LoadHtml(html);
 
             return null; // TO DO - Implement extractor.
         }

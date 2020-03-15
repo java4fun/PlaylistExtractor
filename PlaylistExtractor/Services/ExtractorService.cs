@@ -1,51 +1,51 @@
-﻿using PlaylistExtractor.Contracts;
-using PlaylistExtractor.Base;
+﻿using PlaylistExtractor.Base;
+using PlaylistExtractor.Models;
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PlaylistExtractor.Services
 {
     public class ExtractorService
     {
-        private readonly IDictionary<string, IExtractor> _extractors;
+        private readonly Dictionary<string, IExtractor> services;
 
-        private static readonly ExtractorService _instance = new ExtractorService();
-
-        public static ExtractorService GetInstance()
+        public ExtractorService()
         {
-            return _instance;
-        }
-
-        private ExtractorService()
-        {
-            _extractors = new Dictionary<string, IExtractor>
+            IExtractor[] svcArr =
             {
-                {
-                    @"(youtube\.com|youtu\.be)\/playlist\?list=[a-zA-Z0-9]+((-|_)[a-zA-Z0-9]+)?",
-                    new YoutubeExtractor()
-                },
-                {
-                    @"vimeo\.com\/album\/[a-z0-9]+",
-                    new VimeoExtractor()
-                },
-                {
-                    @"dailymotion\.com\/playlist\/[a-z0-9]+(-)?",
-                    new DailymotionExtractor()
-                }
+                new YoutubeExtractor()
             };
+
+            services = new Dictionary<string, IExtractor>();
+
+            foreach (IExtractor svc in svcArr)
+            {
+                services.Add(svc.ServiceHost, svc);
+            }
         }
 
-        public Task<IEnumerable<IVideo>> ExtractVideosAsync(string playlistUrl)
+        public async Task<IEnumerable<Video>> ExtractVideosAsync(string listUrl)
         {
-            return Task.Factory.StartNew(() => TryGetExtractor(playlistUrl)?.DoExtraction(playlistUrl));
+            bool success = TryGetExtractor(listUrl, out IExtractor extractor);
+
+            if (success)
+            {
+                return await Task.Run(() =>
+                {
+                    return extractor.DoExtraction(listUrl);
+                });
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        private IExtractor TryGetExtractor(string url)
+        private bool TryGetExtractor(string url, out IExtractor extractor)
         {
-            return _extractors.SingleOrDefault(e => Regex.IsMatch(url, e.Key)).Value;
+            string host = new Uri(url).Host;
+            return services.TryGetValue(host, out extractor);
         }
     }
 }

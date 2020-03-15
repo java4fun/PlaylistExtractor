@@ -46,9 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Extractor.cs" />
-    <Compile Include="Contracts\IExtractor.cs" />
-    <Compile Include="Contracts\IVideo.cs" />
+    <Compile Include="Base\IExtractor.cs" />
     <Compile Include="Extractors\DailymotionExtractor.cs" />
     <Compile Include="Extractors\VimeoExtractor.cs" />
     <Compile Include="Extractors\YoutubeExtractor.cs" />

@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PlaylistExtractor">
-      <HintPath>..\PlaylistExtractor\obj\Debug\PlaylistExtractor.dll</HintPath>
+      <HintPath>bin\Debug\PlaylistExtractor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

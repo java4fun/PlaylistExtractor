@@ -1,16 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using PlaylistExtractor.Models;
-using HtmlAgilityPack;
-using PlaylistExtractor.Contracts;
+﻿using PlaylistExtractor.Models;
+using System.Collections.Generic;
 
 namespace PlaylistExtractor.Base
 {
-    internal class VimeoExtractor : Extractor
+    public class VimeoExtractor : IExtractor
     {
-        public override IEnumerable<IVideo> DoExtraction(string url)
+        public VimeoExtractor()
         {
-            LoadHtmlFromUrl(url);
+            ServiceHost = "www.vimeo.com";
+            ServiceRegex = @"vimeo\.com\/album\/[a-z0-9]+";
+        }
+
+        public override IEnumerable<Video> DoExtraction(string url)
+        {
+            string html = GetHtmlDecoded(url);
+
+            doc.LoadHtml(html);
 
             return null; // TO DO - Implement extractor.
         }

@@ -1,32 +1,42 @@
-﻿using PlaylistExtractor.Contracts;
-using PlaylistExtractor.Models;
+﻿using PlaylistExtractor.Models;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace PlaylistExtractor.Base
 {
-    internal class YoutubeExtractor : Extractor
+    public class YoutubeExtractor : IExtractor
     {
-        public override IEnumerable<IVideo> DoExtraction(string url)
+        public YoutubeExtractor()
         {
-            LoadHtmlFromUrl(url);
+            ServiceHost = "www.youtube.com";
+            ServiceRegex = @"(youtube\.com|youtu\.be)\/playlist\?list=[a-zA-Z0-9]+((-|_)[a-zA-Z0-9]+)?";
+        }
 
-            string html = htmlDocument.ParsedText;
+        public override IEnumerable<Video> DoExtraction(string url)
+        {
+            string html = GetHtmlDecoded(url);
 
-            var videos = Regex.Matches(html, "data-video-id=\"(.*?)\".*?data-title=\"(.*?)\"");
+            doc.LoadHtml(html);
 
-            var ret = new List<IVideo>(videos.Count);
+            var items = Regex.Matches(doc.ParsedText, "data-video-id=\"(?<vidid>.*)\".*?data-title=\"(?<vidtitle>.*)\"");
 
-            foreach(Match video in videos)
+            var videos = new List<Video>(items.Count);
+
+            if (items.Count > 0)
             {
-                ret.Add(new Video
+                foreach (Match item in items)
                 {
-                    Title = video.Groups[2].Value,
-                    Url = $"www.youtube.com/watch?v={video.Groups[1].Value}"
-                });
+                    Video video = new Video
+                    {
+                        Title = item.Groups["vidtitle"].Value,
+                        Url = $"www.youtube.com/watch?v={item.Groups["vidid"].Value}"
+                    };
+
+                    videos.Add(video);
+                }
             }
 
-            return ret;
+            return videos;
         }
     }
 }
