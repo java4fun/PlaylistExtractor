@@ -27,13 +27,16 @@ namespace DemoProgram
             if (videos == null)
                 return;
 
+            treeView1.BeginUpdate();
             foreach (Video video in videos)
             {
                 var node = new TreeNode(video.Title);
                 node.Nodes.Add(video.Url);
 
+                
                 treeView1.Nodes.Add(node);
             }
+            treeView1.EndUpdate();
 
             toolStripStatusLabel1.Text = $"{videos.Count()} videos found.";
         }
